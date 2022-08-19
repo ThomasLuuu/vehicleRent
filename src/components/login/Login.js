@@ -40,13 +40,18 @@ const Login = (props) => {
   }, [history, setUser]);
 
   const login = async () => {
+    console.log("passed")
+
     try {
       uiService.showLoading();
       const { email, password } = getInputs();
       if (isUserCredentialsValid(email, password)) {
         await firebaseService.login(email, password);
+        console.log("passed 1")
         const user = await firebaseService.getData({ key: FIREBASE_KEYS.USERS, query: FIREBASE_KEYS.EMAIL, criteria: email });
+        console.log("passed")
         await cometChatService.login({ cometChat, user });
+        console.log("passed")
         saveAuthedInfo(user);
         uiService.hideLoading();
         routeService.navigate({ route: ROUTES.HOME, push: history.push });
