@@ -8,7 +8,6 @@
     npm run start
 ```
 
-Questions about running the demo? [Open an issue](https://github.com/hieptl/airbnb/issues). We're here to help ✌️
 
 ## Useful links
 
